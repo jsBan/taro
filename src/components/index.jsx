@@ -1,7 +1,8 @@
-import PostCard from "./PostCard";
-import PostForm from "./PostForm";
+
+import NavBar from "./NavBar";
+import Search from "./Search";
 
 export {
-    PostCard,
-    PostForm
+    NavBar,
+    Search
 }

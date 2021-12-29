@@ -1,13 +1,22 @@
-import { Component } from 'react'
 import { View } from '@tarojs/components'
+import { useEffect } from "react"
+
+
+const Category = () => {
+
+    useEffect(() => {
+        console.log('hooks');
+        
+    })
 
 
 
-export default class Category extends Component {
 
-    render() {
-        return (
-            <View>购物车页面</View>
-        )
-    }
-} 
+    return (
+        <View>
+            购物车页面12312312
+        </View>
+    )
+}
+
+export default Category
