@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
-import { View, Swiper, SwiperItem, Image, Text } from "@tarojs/components"
+import { View, Swiper, SwiperItem, Image, Text,  } from "@tarojs/components"
 import { NavBar } from "../../components"
-import { useState } from 'react'
 
 import "./index.less"
 
@@ -46,6 +45,50 @@ const Index = () => {
              name: "新品推荐",
            },
        ],
+       comment: [
+           {
+               logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+               user_name: 'Down',
+               commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
+               commemt_images: [
+                'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+                'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
+                'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
+               ],
+               specs: {
+                   color: '银色',
+                   condition: '99新',
+                   model:'苹果X',
+                   size: '5.8寸',
+                   face: '有面容',
+                   ram: '256G'
+               },
+               Star: 5
+           },
+           {
+               logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+               user_name: '小红',
+               commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
+               commemt_images: [
+                'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+                'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
+                'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
+               ],
+               specs: {
+                   color: '红色',
+                   condition: '99新',
+                   model:'苹果X',
+                   size: '5.8寸',
+                   face: '有指纹',
+                   ram: '256G'
+               },
+               star: 5
+           },
+       ]
+    }
+
+    const handleChange = (val) => {
+        console.log(val);
     }
     return (
         <View className="wrapper">
@@ -125,7 +168,54 @@ const Index = () => {
                         看看大家怎么说 <Text className="at-icon at-icon-chevron-right"></Text>
                     </View>
                 </View>
-                <View className="comment-swiper"></View>
+                <View className="comment-swiper">
+                <Swiper
+                  className="swiper-container"
+                  circular
+                  indicatorColor='#999'
+                  indicatorActiveColor='#bf708f'
+                  autoplay
+                >
+                    {
+                        state.comment && state.comment.map((item, index) => (
+                            <SwiperItem key={index}>
+                                <View className="comment-top">
+                                    <View className="user-logo">
+                                        <Image src={item.logo}></Image>
+                                    </View>
+                                    <View className="comment-info">
+                                        <View className="comment-name">
+                                            {item.user_name}
+                                        </View>
+                                        <View className="comment-desc">
+                                            <Text className="desc">{item.commemt_desc}</Text> <Text className="at-icon at-icon-chevron-down"></Text>
+                                        </View>
+                                        <View className="comment-images" >
+                                           {
+                                               item.commemt_images.map((url, idx) => (
+                                                    <Image key={idx} src={url} />
+                                               ))
+                                           }
+                                        </View>
+                                    </View>
+                                </View>
+                                <View className="comment-bottom">
+                                    <View className="tel-info">
+                                        {item.specs.color}{item.specs.condition} {item.specs.model}（{item.specs.size}）{item.specs.face} {item.specs.ram}
+                                    </View>
+                                    <View className="tel-star">
+                                        {/* 星级图标 */}
+                                        {/* <AtRate
+                                          value={item.star}
+                                          onChange={handleChange.bind(this)}
+                                        /> */}
+                                    </View>
+                                </View>
+                            </SwiperItem>
+                        ))
+                    }
+                </Swiper>
+                </View>
             </View>
         </View>
     )
