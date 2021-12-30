@@ -106,7 +106,9 @@ const Index = () => {
                     {
                         state.list && state.list.map((item, index) => (
                             <SwiperItem key={index}>
-                                <Image className="swiper-img" src={item} mode='widthFix'></Image>
+                               <View className="images">
+                                    <Image className="swiper-img" src={item} mode='widthFix'></Image>
+                               </View>
                             </SwiperItem>
                         ))
                     }
