@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro'
 import { Component , useEffect} from 'react'
+import 'taro-ui/dist/style/index.scss' // 全局引入一次即可
 import './app.less'
 
 const  App = (props) =>  {
