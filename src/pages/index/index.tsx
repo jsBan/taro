@@ -50,6 +50,7 @@ const Index = () => {
     return (
         <View className="wrapper">
             <NavBar />
+            <View className="default"></View>
             <View className="banner">
                 <Swiper
                   className="swiper-container"
@@ -68,6 +69,7 @@ const Index = () => {
                     }
                 </Swiper>
             </View>
+            {/* nav导航模块 */}
             <View className="nav"> 
             {
                 state.nav.map((item, index) => (
@@ -80,6 +82,7 @@ const Index = () => {
                 ))
             }
             </View>
+            {/* block 模块*/}
             <View className="block">
                 <View className="block-left">
                     <View className="left-title">正品回收.更快.更高价</View>
@@ -111,6 +114,18 @@ const Index = () => {
                         </View>
                     </View>
                 </View>
+            </View>
+            {/* 评论模块 */}
+            <View className="comment">
+                <View className="comment-desc">
+                    <View className="desc-left">
+                        已有<Text>1954617</Text>名用户选购
+                    </View>
+                    <View className="desc-right">
+                        看看大家怎么说 <Text className="at-icon at-icon-chevron-right"></Text>
+                    </View>
+                </View>
+                <View className="comment-swiper"></View>
             </View>
         </View>
     )
